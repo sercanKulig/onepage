@@ -3,21 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/vendors/scrolloverflow.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/javascript.fullPage.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/first.css" />
+    <link rel="stylesheet" type="text/css" href="css/javascript.fullPage.css" />
+
 </head>
 <body>
 
+<div id="navbar">
+    <a href="#anasayfa">Anasayfa</a>
+    <a href="#hakkımızda">Hakkımızda</a>
+    <a href="#urunler">Ürünler</a>
+    <a href="#iletisim">İletişim</a>
+</div>
 
-
-
-
-
-<script type="text/javascript" src="javascript.fullPage.js"></script>
+<div id="wrapper">
+    <div class="section" data-anchor="anasayfa">
+        <img class="main-img" src="images/tap.jpg">
+    </div>
+    <div class="section" data-anchor="hakkımızda">
+        <img class="main-img" src="images/tap.jpg">
+    </div>
+    <div class="section" data-anchor="urunler">
+        <img class="main-img" src="images/tap.jpg">
+    </div>
+    <div class="section" data-anchor="iletisim">
+        <img class="main-img" src="images/tap.jpg">
+    </div>
+</div>
 <script type="text/javascript">
-    fullpage.initialize('#fullpage', {
-        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+    fullpage.initialize('#wrapper', {
+        anchors: ['anasayfa', 'hakkımızda', 'urunler', 'iletisim'],
         menu: '#menu',
         css3:true
     });
