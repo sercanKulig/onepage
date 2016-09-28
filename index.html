@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Buta... Elektromekanik...</title>
+    <meta name="author" content="Ünsal Sercan Küliğ" />
+    <meta name="description" content="Buta onepage anasayfası" />
+    <meta name="keywords"  content="Buta,buta,butaelektronik,buta elektronik,buta elektromekanik,butaelektromekanik,buta elektro mekanik,butaelektro mekanik,Mbus,mbus,mbus sistemleri,buta yazılım,buta tasarım,Fırçasız dc motor, Fırçasız dc motor tasarımı, Fırçasız dc temini" />
+    <meta name="Resource-type" content="Document" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/javascript.fullPage.min.js"></script>
     <script type="text/javascript" src="js/first.js"></script>
     <link rel="stylesheet" type="text/css" href="css/first.css" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/javascript.fullPage.css" />
 
     <!--[if IE]>
@@ -36,20 +41,35 @@
 
 
 <div id="wrapper">
-    <div class="section" data-anchor="anasayfa">
-        <img class="main-img" src="images/tap.jpg">
-        <h3>Mbus çözüm ortağınız</h3>
+    <div class="section" data-anchor="anasayfa" id="anasayfa-id">
+        <div class="anasayfa-slider">
+            <div class="anasayfa-tanitim-ilk">
+                <p>MBUS<br> ÇÖZÜM ORTAĞINIZ</p>
+            </div>
+            <div class="anasayfa-tanitim-aciklama">
+                <p>
+                    Elektronik tasarım, yazılım, uzaktan sayaç okuma.<br><br> Mbus sistemleri ürün geliştirilmesi,<br> kurulumu, teknik desteği.<br><br> Fırçasız dc motoru sürücüsü tasarımı,<br> fırçasız dc motor temini.
+                </p>
+            </div>
+        </div>
     </div>
-    <div class="section" data-anchor="hakkımızda">
+    <div class="section" data-anchor="hakkımızda" id="hakkimizda-id">
+        <div id="master-icon">
+            <div class="chart">
+                <img src="images/line-chart.png">
+            </div>
+            <div class="pie-chart">
+                <img src="images/pie-chart-1.png">
+            </div>
+        </div>
+    </div>
+    <div class="section" data-anchor="urunler" id="urunler-id">
         <img class="main-img" src="images/tap.jpg">
     </div>
-    <div class="section" data-anchor="urunler">
+    <div class="section" data-anchor="referanslar" id="referanslar-id">
         <img class="main-img" src="images/tap.jpg">
     </div>
-    <div class="section" data-anchor="referanslar">
-        <img class="main-img" src="images/tap.jpg">
-    </div>
-    <div class="section" data-anchor="iletisim">
+    <div class="section" data-anchor="iletisim" id="iletisim-id">
         <img class="main-img" src="images/tap.jpg">
     </div>
 </div>
@@ -61,9 +81,36 @@
     fullpage.initialize('#wrapper', {
         anchors: ['anasayfa', 'hakkımızda', 'urunler', 'referanslar', 'iletisim'],
         menu: '#menu',
-        css3:true
+        css3:true,
+        fadingEffect:true,
+        faddingEffect:'section'
     });
 
+    var SCROLLING_SPEED = 700;
+
+    // fullPage.js settings for fading-in slides insead of scrolling them
+    $('#wrapper').fullpage({
+        scrollingSpeed: 0,
+
+        // Hide the slides container before the next slide loads
+        onLeave: function(index, nextIndex, direction) {
+            if( index == 2 && direction == 'down'){
+                $('#anasayfa').fadeOut(700);
+                $('#hakkımızda').fadeIn(700);
+            }
+
+            if( index == 3 && direction == 'down'){
+                $('#hakkımızda').fadeOut(700);
+                $('#urunler').fadeIn(700);
+            }
+        },
+
+        // Display the slides container by fading it in after the next slide has been loaded.
+        afterSlideLoad: function(anasayfa, hakkımızda, urunler, referanslar ,iletisim) {
+            sliding = false;
+        },
+
+    });
 </script>
 </body>
 </html>
